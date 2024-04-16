@@ -1,9 +1,15 @@
 package id.my.hendisantika.springbootgeneratepdf.controller;
 
 import id.my.hendisantika.springbootgeneratepdf.service.PdfService;
+import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
+import org.apache.commons.io.IOUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+
+import java.io.ByteArrayInputStream;
+import java.io.IOException;
 
 /**
  * Created by IntelliJ IDEA.
@@ -24,5 +30,13 @@ public class PdfController {
     @GetMapping("/")
     public String index() {
         return "index";
+    }
+
+    @PostMapping("/generatePdfFile")
+    public void generatePdfFile(HttpServletResponse response, String contentToGenerate) throws IOException {
+        ByteArrayInputStream byteArrayInputStream = pdfService.convertHtmlToPdf(contentToGenerate);
+        response.setContentType("application/octet-stream");
+        response.setHeader("Content-Disposition", "attachment; filename=file.pdf");
+        IOUtils.copy(byteArrayInputStream, response.getOutputStream());
     }
 }
