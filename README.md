@@ -12,3 +12,7 @@
 Index Home Page
 
 ![Index Home Page](img/index.png "Index Home Page")
+
+Sample page
+
+![Sample page](img/sample.png "Sample page")
