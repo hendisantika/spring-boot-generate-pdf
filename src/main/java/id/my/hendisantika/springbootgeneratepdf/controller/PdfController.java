@@ -3,6 +3,7 @@ package id.my.hendisantika.springbootgeneratepdf.controller;
 import id.my.hendisantika.springbootgeneratepdf.service.PdfService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 
 /**
  * Created by IntelliJ IDEA.
@@ -20,4 +21,8 @@ public class PdfController {
 
     private final PdfService pdfService;
 
+    @GetMapping("/")
+    public String index() {
+        return "index";
+    }
 }
