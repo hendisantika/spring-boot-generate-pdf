@@ -8,3 +8,7 @@
 09:37:23.248 [ApplicationImpl pooled thread 412] INFO  com.browserstack.utils.Helpers - null
 09:37:31.057 [AWT-EventQueue-0] INFO  c.b.l.BrowserStackRunExtension - gradle
 09:37:31.057 [AWT-EventQueue-0] INFO  com.browserstack.utils.Helpers - null
+09:38:07.532 [AWT-EventQueue-0] INFO  c.b.l.BrowserStackRunExtension - gradle
+09:38:07.532 [AWT-EventQueue-0] INFO  com.browserstack.utils.Helpers - null
+09:38:29.470 [AWT-EventQueue-0] INFO  c.b.l.BrowserStackRunExtension - gradle
+09:38:29.471 [AWT-EventQueue-0] INFO  com.browserstack.utils.Helpers - null
