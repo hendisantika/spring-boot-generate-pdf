@@ -1,0 +1,102 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <style>
+        h1 {
+            color: #25a7e7;
+            text-align: center;
+        }
+
+        .receipt-header {
+            width: 100%;
+        }
+
+        .receipt {
+            width: 100%;
+        }
+
+        .receipt, .receipt th, .receipt td {
+            border: 1px solid #25a7e7;
+            border-collapse: collapse;
+        }
+
+        .receipt th {
+            background-color: #25a7e7;
+            color: white;
+        }
+
+        .total {
+            text-align: right;
+        }
+    </style>
+</head>
+<body>
+<h1>Receipt</h1>
+<div>
+    <table class="receipt-header">
+        <tr>
+            <td>
+                <table>
+                    <tr>
+                        <th>Bill To:</th>
+                    </tr>
+                    <tr>
+                        <td>Company Name: Simple Solution</td>
+                    </tr>
+                    <tr>
+                        <td>Address: 123 Sample Street</td>
+                    </tr>
+                    <tr>
+                        <td>Email: info@simplesolution.dev</td>
+                    </tr>
+                    <tr>
+                        <td>Phone: 123 456 789</td>
+                    </tr>
+                </table>
+            </td>
+            <td align="right">
+                <img src="https://simplesolution.dev/images/Logo_S_v1.png" width="140"/>
+                <br/>
+                Simple Solution
+            </td>
+        </tr>
+    </table>
+</div>
+
+<br/>
+<table class="receipt">
+    <tr>
+        <th>Item #</th>
+        <th>Description</th>
+        <th>Quantity</th>
+        <th>Unit Price</th>
+        <th>Total</th>
+    </tr>
+    <tr>
+        <td>1</td>
+        <td>Item 1 Description</td>
+        <td>5</td>
+        <td>$100</td>
+        <td>$500</td>
+    </tr>
+    <tr>
+        <td>2</td>
+        <td>Item 2 Description</td>
+        <td>10</td>
+        <td>$20</td>
+        <td>$200</td>
+    </tr>
+    <tr>
+        <td>3</td>
+        <td>Item 3 Description</td>
+        <td>2</td>
+        <td>$50</td>
+        <td>$100</td>
+    </tr>
+    <tr>
+        <td class="total" colspan="4"><b>Total</b></td>
+        <td><b>$800</b></td>
+    </tr>
+</table>
+</body>
+</html>
