@@ -10,6 +10,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 /**
  * Created by IntelliJ IDEA.
@@ -38,5 +41,17 @@ public class PdfController {
         response.setContentType("application/octet-stream");
         response.setHeader("Content-Disposition", "attachment; filename=file.pdf");
         IOUtils.copy(byteArrayInputStream, response.getOutputStream());
+    }
+
+    @GetMapping("/pdf/generate")
+    public void generatePDF(HttpServletResponse response) throws IOException {
+        response.setContentType("application/pdf");
+        DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS z");
+        String currentDateTime = dateFormat.format(new Date());
+
+        String headerKey = "Content-Disposition";
+        String headerValue = "attachment; filename = pdf_" + currentDateTime + ".pdf";
+        response.setHeader(headerKey, headerValue);
+        this.pdfService.export(response);
     }
 }
