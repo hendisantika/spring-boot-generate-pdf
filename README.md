@@ -6,6 +6,7 @@
 2. Navigate to the folder: `cd spring-boot-generate-pdf`
 3. Run the application: `mvn clean spring-boot:run`
 4. Open your favorite browser: http://localhost:8080
+4. Open your favorite browser: http://localhost:8080/pdf/generate
 
 ### Image Screenshot
 
