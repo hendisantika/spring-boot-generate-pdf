@@ -5,6 +5,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
 import org.apache.commons.io.IOUtils;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
@@ -36,11 +37,24 @@ public class PdfController {
     }
 
     @PostMapping("/generatePdfFile")
-    public void generatePdfFile(HttpServletResponse response, String contentToGenerate) throws IOException {
-        ByteArrayInputStream byteArrayInputStream = pdfService.convertHtmlToPdf(contentToGenerate);
-        response.setContentType("application/octet-stream");
-        response.setHeader("Content-Disposition", "attachment; filename=file.pdf");
-        IOUtils.copy(byteArrayInputStream, response.getOutputStream());
+    public String generatePdfFile(HttpServletResponse response, String contentToGenerate, Model model) {
+        try {
+            ByteArrayInputStream byteArrayInputStream = pdfService.convertHtmlToPdf(contentToGenerate);
+            response.setContentType("application/octet-stream");
+            response.setHeader("Content-Disposition", "attachment; filename=file.pdf");
+            IOUtils.copy(byteArrayInputStream, response.getOutputStream());
+            return null;
+        } catch (Exception e) {
+            String errorMsg = "Error generating PDF: " + e.getMessage();
+            if (e.getMessage() != null && e.getMessage().contains("element type")) {
+                errorMsg = "Invalid XHTML: Please ensure all tags are properly closed. " +
+                        "Example: Use <link ... /> instead of <link ...>. " +
+                        "Error: " + e.getMessage();
+            }
+            model.addAttribute("error", errorMsg);
+            model.addAttribute("contentToGenerate", contentToGenerate);
+            return "index";
+        }
     }
 
     @GetMapping("/pdf/generate")
