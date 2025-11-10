@@ -27,7 +27,7 @@ dependencies {
     implementation("org.springframework.boot:spring-boot-starter-thymeleaf")
     implementation("org.springframework.boot:spring-boot-starter-web")
     implementation("org.xhtmlrenderer:flying-saucer-pdf:10.0.3")
-    implementation("commons-io:commons-io:2.20.0")
+    implementation("commons-io:commons-io:2.21.0")
     implementation("com.github.librepdf:openpdf:3.0.0")
     compileOnly("org.projectlombok:lombok")
     developmentOnly("org.springframework.boot:spring-boot-devtools")
