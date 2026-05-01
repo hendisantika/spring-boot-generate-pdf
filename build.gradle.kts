@@ -28,7 +28,7 @@ dependencies {
     implementation("org.springframework.boot:spring-boot-starter-web")
     implementation("org.xhtmlrenderer:flying-saucer-pdf:10.2.0")
     implementation("commons-io:commons-io:2.22.0")
-    implementation("com.github.librepdf:openpdf:3.0.3")
+    implementation("com.github.librepdf:openpdf:3.0.4")
     compileOnly("org.projectlombok:lombok")
     developmentOnly("org.springframework.boot:spring-boot-devtools")
     annotationProcessor("org.springframework.boot:spring-boot-configuration-processor")
